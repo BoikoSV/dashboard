@@ -1,0 +1,16 @@
+body{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+*,
+*::after,
+*::before{
+    box-sizing: inherit;
+    padding: inherit;
+    margin: inherit;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
