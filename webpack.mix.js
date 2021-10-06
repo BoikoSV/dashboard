@@ -3,7 +3,13 @@ const mix = require('laravel-mix');
 
 
 mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/scss/main.scss', 'public/css')
-    .options({processCssUrls: false})
-    .copyDirectory('resources/fonts', 'public/fonts')
-    .disableSuccessNotifications();
+    .sourceMaps(true, 'source-map');
+
+mix.sass('resources/scss/main.scss', 'public/css')
+    .sourceMaps(true, 'source-map')
+    .options({processCssUrls: false});
+
+
+mix.copyDirectory('resources/fonts', 'public/fonts')
+    .disableNotifications()
+mix.copyDirectory('resources/svg', 'public/svg');

@@ -1,13 +1,68 @@
 /******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
   \*****************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _menu_toggleMenuItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./menu/toggleMenuItem */ "./resources/js/menu/toggleMenuItem.js");
+/* harmony import */ var _menu_toggleMenuBtn__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./menu/toggleMenuBtn */ "./resources/js/menu/toggleMenuBtn.js");
 
 
+
+/***/ }),
+
+/***/ "./resources/js/components.js":
+/*!************************************!*\
+  !*** ./resources/js/components.js ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "aside": () => (/* binding */ aside)
+/* harmony export */ });
+var aside = document.querySelector('.aside');
+
+
+/***/ }),
+
+/***/ "./resources/js/menu/toggleMenuBtn.js":
+/*!********************************************!*\
+  !*** ./resources/js/menu/toggleMenuBtn.js ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _components_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components.js */ "./resources/js/components.js");
+
+_components_js__WEBPACK_IMPORTED_MODULE_0__.aside.addEventListener('click', function (e) {
+  if (e.target.closest('.menu-btn')) {
+    _components_js__WEBPACK_IMPORTED_MODULE_0__.aside.classList.toggle('aside--hide');
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/menu/toggleMenuItem.js":
+/*!*********************************************!*\
+  !*** ./resources/js/menu/toggleMenuItem.js ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _components_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components.js */ "./resources/js/components.js");
+
+var menuHeaderItems = _components_js__WEBPACK_IMPORTED_MODULE_0__.aside.querySelectorAll('.menu__header');
+_components_js__WEBPACK_IMPORTED_MODULE_0__.aside.addEventListener('click', function (e) {
+  if (e.target.closest('.menu__header')) {
+    e.target.closest('.menu__header').classList.toggle('menu__header--show');
+  }
+});
 
 /***/ }),
 
@@ -17,7 +72,6 @@
   \**********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
@@ -83,6 +137,18 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 				}
 /******/ 			}
 /******/ 			return result;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
 /******/ 		};
 /******/ 	})();
 /******/ 	
@@ -167,3 +233,4 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 	
 /******/ })()
 ;
+//# sourceMappingURL=app.js.map

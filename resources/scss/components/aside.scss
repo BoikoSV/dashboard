@@ -1,0 +1,145 @@
+.aside{
+    background-color: #161624;
+    color: #fff;
+    padding: 17px;
+    width: 215px;
+}
+.aside__header{
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.aside__logo-text{
+    font-weight: 700;
+}
+.menu-btn{
+    background-color: transparent;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+}
+.menu-btn path{
+    transition: fill-opacity 0.2s;
+}
+.menu-btn:hover path{
+    fill-opacity: 1;
+}
+.aside__main{
+    font-size: 12px;
+    color: rgba(#fff, 0.6);
+}
+//menu__item
+.menu__item{
+    position: relative;
+}
+.menu__header{
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    height: 44px;
+    cursor: pointer;
+    transition: color 0.2s;
+    font-size: 16px;
+}
+.menu__toggle-ico{
+    margin-left: auto;
+    width: 18px;
+    height: 18px;
+    background-image: url("../svg/arrow.svg");
+    background-size: contain;
+    background-position: center;
+    transform: rotate(-90deg);
+}
+
+.menu__header path{
+    transition: fill-opacity 0.2s;
+}
+.menu__header:hover{
+    color: rgba(#fff, 1);
+}
+.menu__header:hover path{
+    fill-opacity: 1;
+}
+.menu__img-box{
+    margin-right: 9px;
+}
+.sub-menu{
+    //padding-bottom: 10px;
+    height: 0;
+    position: absolute;
+    opacity: 0;
+
+    //background-color: #161624;
+    //overflow: hidden;
+    //transition: height .3s;
+}
+
+//shown
+.menu__header--show{
+    //color: rgba(#fff, 1);
+}
+.menu__header--show ~ .sub-menu{
+    height: auto;
+    position: relative;
+    opacity: 1;
+}
+.menu__header--show path{
+    //fill-opacity: 1;
+}
+.menu__header--show .menu__toggle-ico{
+    transform: rotate(0);
+}
+.sub-menu__link{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+.sub-menu__link:hover{
+    color: rgba(#fff, 1);
+}
+.sub-menu__link::before{
+    content: '';
+    display: block;
+    width: 8px;
+    height: 8px;
+    margin-right: 10px;
+    border-bottom: 5px;
+    border-left: 3px solid;
+    border-bottom: 3px solid;
+    transition: border-color 0.2s;
+}
+
+
+
+.aside--hide{
+    width: 55px;
+    //padding: 0;
+
+
+    .aside__header{
+        justify-content: center;
+    }
+    .aside__logo-link{
+        display: none;
+    }
+    .menu__img-box{
+        margin-right: 0;
+    }
+    .menu__text{
+        display: none;
+    }
+    .menu__toggle-ico{
+        display: none;
+    }
+    .menu__item{
+        display: flex;
+        justify-content: center;
+    }
+    .sub-menu{
+        z-index: -1;
+        height: 0;
+        position: absolute;
+        opacity: 0;
+    }
+}

@@ -10,12 +10,8 @@
 </head>
 <body>
 <div class="wrapper">
-    <header class="header">
-        header
-    </header>
-    <aside class="aside">
-        aside
-    </aside>
+    @include('includes.header')
+    @include('includes.aside')
     <main class="main">
         <div class="container">
             @yield('content')
