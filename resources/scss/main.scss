@@ -16,6 +16,8 @@
 @import "components/table";
 @import "components/user-name";
 @import "components/user-role";
+@import "components/info-colors-btn";
+@import "components/external";
 
 /*****************************
             LAYOUTS
@@ -25,3 +27,4 @@
 /*****************************
             PAGES
 ******************************/
+@import "pages/comments";

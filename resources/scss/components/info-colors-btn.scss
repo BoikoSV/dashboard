@@ -1,0 +1,29 @@
+.info-btn{
+    width: 80px;
+    line-height: 30px;
+    border-radius: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.info-green{
+    color: #4BDE97;
+    background-color: rgba(#4BDE97, 0.2);
+}
+.info-yellow{
+    color: #FFB648;
+    background-color: rgba(#FFB648, 0.2);
+}
+.info-red{
+    color: #F26464;
+    background-color: rgba(#F26464, 0.2);
+}
+.info-blue{
+    color: #5887FF;
+    background-color: rgba(#5887FF, 0.2);
+}
+.info-dark{
+    color: #2F49D1;
+    background-color: rgba(#2F49D1, 0.2);
+}

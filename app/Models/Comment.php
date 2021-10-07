@@ -16,4 +16,8 @@ class Comment extends Model
     public function post(){
         return $this->belongsTo(Post::class);
     }
+
+    public function getDateCreatedAttribute(){
+        return $this->created_at->format('d.m.Y');
+    }
 }
