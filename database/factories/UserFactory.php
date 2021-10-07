@@ -31,7 +31,8 @@ class UserFactory extends Factory
             'email' => $this->faker->unique()->safeEmail(),
             'email_verified_at' => now(),
             'role_id' => Arr::random($roles),
-            'user_avatar' => Arr::random([$this->faker->imageUrl, null]),
+//            'user_avatar' => Arr::random([$this->faker->imageUrl(500, 400, 'cats'), null]),
+            'user_avatar' => Arr::random(["http://lorempixel.com/" . Arr::random([50, 60, 70, 80, 90, 100, 110]) . "/" . Arr::random([50, 60, 70, 80, 90, 100, 110]) . "/people/", null]),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'remember_token' => Str::random(10),
             'created_at' => $this->faker->dateTime,
