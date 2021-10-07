@@ -109,7 +109,10 @@
     border-bottom: 3px solid;
     transition: border-color 0.2s;
 }
-
+.sub-menu__link--active{
+    color: #fff;
+    font-weight: 700;
+}
 
 
 .aside--hide{

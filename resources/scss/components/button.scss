@@ -1,0 +1,21 @@
+.create-btn{
+    padding: 10px 20px;
+    border: 2px solid #2F49D1;
+    border-radius: 4px;
+    font-weight: 40;
+    font-size: 16px;
+    color: #2F49D1;
+    transition: color 0.3s, background-color 0.3s;
+}
+.create-btn:hover{
+    background-color: #2F49D1;
+    color: #fff;
+}
+.btn-fill{
+    background-color: #2F49D1;
+    color: #fff;
+}
+.btn-fill:hover{
+    background-color: transparent;
+    color: #2F49D1;
+}
