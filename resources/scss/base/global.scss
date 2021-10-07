@@ -3,6 +3,7 @@ body{
     margin: 0;
     padding: 0;
     font-family: Inter;
+    background-color: #EFF0F6;
 }
 *,
 *::after,
@@ -18,4 +19,8 @@ a{
 ul,
 li{
     list-style: none;
+}
+.container{
+    padding-left: 15px;
+    padding-right: 15px;
 }

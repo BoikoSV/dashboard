@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -52,5 +53,17 @@ class User extends Authenticatable
 
     public function role(){
         return $this->belongsTo(Role::class);
+    }
+
+    public function getDateCreatedAttribute(){
+        return $this->created_at->format('d.m.Y');
+    }
+
+    public function getUserRoleAttribute(){
+        if($this->role){
+            return $this->role->role_name;
+        }else{
+            return null;
+        }
     }
 }

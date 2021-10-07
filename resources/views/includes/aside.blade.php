@@ -22,7 +22,7 @@
                     </div>
                     <ul class="sub-menu">
                         <li class="sub-menu__item">
-                            <a href="#" class="sub-menu__link">Show all</a>
+                            <a href="{{ route('posts.index') }}" class="sub-menu__link {{ \Illuminate\Support\Facades\Route::is('posts.index') ? 'sub-menu__link--active' : '' }}">Show all</a>
                         </li>
                         <li class="sub-menu__item">
                             <a href="#" class="sub-menu__link">Create post</a>
@@ -39,7 +39,7 @@
                     </div>
                     <ul class="sub-menu">
                         <li class="sub-menu__item">
-                            <a href="#" class="sub-menu__link">Show all</a>
+                            <a href="{{ route('categories.index') }}" class="sub-menu__link {{ \Illuminate\Support\Facades\Route::is('categories.index') ? 'sub-menu__link--active' : '' }}">Show all</a>
                         </li>
                         <li class="sub-menu__item">
                             <a href="#" class="sub-menu__link">Create category</a>
@@ -56,7 +56,7 @@
                     </div>
                     <ul class="sub-menu">
                         <li class="sub-menu__item">
-                            <a href="#" class="sub-menu__link">Show all</a>
+                            <a href="{{ route('comments.index') }}" class="sub-menu__link {{ \Illuminate\Support\Facades\Route::is('comments.index') ? 'sub-menu__link--active' : '' }}">Show all</a>
                         </li>
                     </ul>
                 </li>
@@ -70,7 +70,7 @@
                     </div>
                     <ul class="sub-menu">
                         <li class="sub-menu__item">
-                            <a href="#" class="sub-menu__link">Show all</a>
+                            <a href="{{ route('users.index') }}" class="sub-menu__link {{ \Illuminate\Support\Facades\Route::is('users.index') ? 'sub-menu__link--active' : '' }}">Show all</a>
                         </li>
                         <li class="sub-menu__item">
                             <a href="#" class="sub-menu__link">Create user</a>
