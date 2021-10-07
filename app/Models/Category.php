@@ -14,6 +14,10 @@ class Category extends Model
         return $this->hasMany(Post::class);
     }
 
+    public function getDateCreatedAttribute(){
+        return $this->created_at->format('d.m.Y');
+    }
+
     public function sluggable(): array
     {
         return [

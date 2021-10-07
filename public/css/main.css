@@ -463,4 +463,10 @@ li {
   align-items: center;
 }
 
+.table__categories {
+  max-width: 500px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 /*# sourceMappingURL=main.css.map*/
