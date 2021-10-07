@@ -13,3 +13,4 @@ mix.sass('resources/scss/main.scss', 'public/css')
 mix.copyDirectory('resources/fonts', 'public/fonts')
     .disableNotifications()
 mix.copyDirectory('resources/svg', 'public/svg');
+mix.copyDirectory('resources/images', 'public/images');
