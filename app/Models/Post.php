@@ -24,4 +24,20 @@ class Post extends Model
             'tag_id'
         );
     }
+
+    public function comments(){
+        return $this->hasMany(Comment::class);
+    }
+
+    public function getCategoryNameAttribute(){
+        if($this->category){
+            return $this->category->category_name;
+        }else{
+            return null;
+        }
+    }
+
+    public function getDateCreatedAttribute(){
+        return $this->created_at->format('d.m.Y');
+    }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -13,7 +14,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('pages.posts.posts');
+        $posts = Post::with(['user', 'category', 'comments'])->paginate(10);
+
+        return view('pages.posts.posts', compact('posts'));
     }
 
     /**
