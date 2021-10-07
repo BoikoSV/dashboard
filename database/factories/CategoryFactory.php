@@ -26,6 +26,7 @@ class CategoryFactory extends Factory
         return [
             'category_name' => Str::ucfirst($this->faker->words(Arr::random([1, 2, 3]), true)),
             'is_publish' => Arr::random([0, 1]),
+            'description' => $this->faker->text(200),
             'created_at' => $this->faker->dateTime,
             'updated_at' => $this->faker->dateTime
         ];
