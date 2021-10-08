@@ -1,0 +1,66 @@
+.drop-down{
+    font-size: 16px;
+    color: #B9B9B9;
+    margin-right: 20px;
+}
+.drop-down__select{
+    position: relative;
+}
+.drop-down__button{
+    width: 185px;
+    height: 45px;
+    border: 2px solid #EEEEEE;
+    border-radius: 4px;
+    background-color: #fff;
+    color: #B9B9B9;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 20px;
+    white-space: nowrap;
+    cursor: pointer;
+}
+.drop-down__button::after{
+    content: '\e901';
+    font-family: icomoon;
+    font-size: 30px;
+}
+.drop-down__list{
+    display: none;
+    position: absolute;
+    top: 48px;
+    background-color: #fff;
+    width: 100%;
+    box-shadow: rgba(#000, 0.1) 3px 5px 6px 0;
+    cursor: pointer;
+}
+//Стили при открытом списке
+.drop-down__select--open{
+    .drop-down__list{
+        display: block;
+    }
+    .drop-down__button{
+        outline: 2px solid rgba(#5887FF, 0.3);
+    }
+}
+.drop-down__list-item{
+    height: 45px;
+    border: 2px solid #EEEEEE;
+    display: flex;
+    align-items: center;
+    border-bottom: none;
+    padding-left: 20px;
+}
+.drop-down__list-item:hover{
+    background-color: #5887FF;
+    color: #fff;
+    border-color: #5887FF;
+}
+.drop-down__list-item:first-child{
+    border-radius: 4px 4px 0 0;
+}
+.drop-down__list-item:last-child{
+    border-radius: 0 0 4px 4px;
+}

@@ -8,3 +8,23 @@
     align-items: center;
     justify-content: right;
 }
+.filter-box__button{
+    background-color: transparent;
+    font-size: 16px;
+    line-height: 24px;
+    color: #B9B9B9;
+    border: 2px solid #EEEEEE;
+    border-radius: 4px;
+    padding: 0 15px;
+    height: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.filter-box__button::before{
+    content: "\e903";
+    font-family: icomoon;
+    margin-right: 7px;
+    font-size: 24px;
+}

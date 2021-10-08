@@ -1,5 +1,4 @@
 /******/ (() => { // webpackBootstrap
-/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
 /***/ "./resources/js/app.js":
@@ -8,9 +7,13 @@
   \*****************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _menu_toggleMenuItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./menu/toggleMenuItem */ "./resources/js/menu/toggleMenuItem.js");
 /* harmony import */ var _menu_toggleMenuBtn__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./menu/toggleMenuBtn */ "./resources/js/menu/toggleMenuBtn.js");
+/* harmony import */ var _drop_down__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./drop-down */ "./resources/js/drop-down.js");
+/* harmony import */ var _drop_down__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_drop_down__WEBPACK_IMPORTED_MODULE_2__);
+
 
 
 
@@ -22,6 +25,7 @@ __webpack_require__.r(__webpack_exports__);
   \************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "aside": () => (/* binding */ aside)
@@ -31,12 +35,40 @@ var aside = document.querySelector('.aside');
 
 /***/ }),
 
+/***/ "./resources/js/drop-down.js":
+/*!***********************************!*\
+  !*** ./resources/js/drop-down.js ***!
+  \***********************************/
+/***/ (() => {
+
+var dropDown = document.querySelector('.drop-down');
+var selectBox = dropDown.querySelector('.drop-down__select');
+var button = dropDown.querySelector('.drop-down__button');
+var list = dropDown.querySelector('.drop-down__list');
+button.addEventListener('click', function () {
+  selectBox.classList.toggle('drop-down__select--open');
+});
+list.addEventListener('click', function (e) {
+  if (e.target.closest('.drop-down__list-item')) {
+    button.innerText = e.target.closest('.drop-down__list-item').dataset.value;
+    selectBox.classList.remove('drop-down__select--open');
+  }
+});
+document.addEventListener('click', function (e) {
+  if (e.target.closest('.drop-down') !== dropDown) {
+    selectBox.classList.remove('drop-down__select--open');
+  }
+});
+
+/***/ }),
+
 /***/ "./resources/js/menu/toggleMenuBtn.js":
 /*!********************************************!*\
   !*** ./resources/js/menu/toggleMenuBtn.js ***!
   \********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components.js */ "./resources/js/components.js");
 
@@ -54,6 +86,7 @@ _components_js__WEBPACK_IMPORTED_MODULE_0__.aside.addEventListener('click', func
   \*********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components.js */ "./resources/js/components.js");
 
@@ -72,6 +105,7 @@ _components_js__WEBPACK_IMPORTED_MODULE_0__.aside.addEventListener('click', func
   \**********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
@@ -137,6 +171,18 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 				}
 /******/ 			}
 /******/ 			return result;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
 /******/ 		};
 /******/ 	})();
 /******/ 	
