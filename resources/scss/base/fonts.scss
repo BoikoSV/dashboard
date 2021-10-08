@@ -26,3 +26,26 @@
     font-style: normal;
     font-display: swap;
 }
+
+
+
+@font-face {
+    font-family: 'icomoon';
+    src: url('../fonts/icomoon.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+.icon-dots:before {
+    content: "\e900";
+}
+.icon-dropdown:before {
+    content: "\e901";
+}
+.icon-search:before {
+    content: "\e902";
+}
+.icon-filter:before {
+    content: "\e903";
+}

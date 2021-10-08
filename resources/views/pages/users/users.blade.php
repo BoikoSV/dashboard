@@ -7,6 +7,12 @@
 </x-page-header>
 
 
+
+    <x-filter-box>
+
+    </x-filter-box>
+
+
     <div class="table-wrapper">
         <table class="table">
             <thead>
