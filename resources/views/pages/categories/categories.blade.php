@@ -36,5 +36,6 @@
             </table>
         </div>
 
+    {{ $categories->onEachSide(1)->links() }}
 
 @endsection

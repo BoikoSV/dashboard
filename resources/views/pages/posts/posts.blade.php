@@ -42,9 +42,7 @@
                         <x-is-verify verify="{{ $post->is_verify }}"/>
                     </td>
                     <td class="table__td">{{ $post->date_created }}</td>
-{{--                    <td class="table__td">--}}
-{{--                        <x-user-role role="{{ $user->user_role }}" />--}}
-{{--                    </td>--}}
+
                     <td class="table__td">act</td>
                 </tr>
             @endforeach
@@ -52,5 +50,6 @@
         </table>
     </div>
 
+    {{ $posts->onEachSide(1)->links() }}
 
 @endsection

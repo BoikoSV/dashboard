@@ -26,15 +26,13 @@
                         <td class="table__td comments__text">{{ $comment->main_text }}</td>
                         <td class="table__td comment__external">
                             <x-external href="{{ route('posts.show', ['post' => $comment->post->id]) }}"/>
-{{--                            {{ 'link to post' . $comment->post->id }}--}}
+
                         </td>
                         <td class="table__td">{{ $comment->date_created }}</td>
                         <td class="table__td">
                             <x-is-publish publish="{{ $comment->is_publish }}" />
                         </td>
-{{--                        <td class="table__td">--}}
-{{--                            <x-user-role role="{{ $user->user_role }}" />--}}
-{{--                        </td>--}}
+
                         <td class="table__td">act</td>
                     </tr>
                 @endforeach
@@ -42,5 +40,6 @@
             </table>
         </div>
 
+        {{ $comments->onEachSide(1)->links() }}
 
 @endsection
