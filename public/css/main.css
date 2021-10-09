@@ -531,7 +531,7 @@ nav .pagination {
 }
 
 .drop-down__button {
-  width: 200px;
+  min-width: 250px;
   height: 45px;
   border: 2px solid #EEEEEE;
   border-radius: 4px;
@@ -561,6 +561,7 @@ nav .pagination {
   width: 100%;
   box-shadow: rgba(0, 0, 0, 0.1) 3px 5px 6px 0;
   cursor: pointer;
+  overflow: hidden;
 }
 
 .drop-down__select--open .drop-down__list {

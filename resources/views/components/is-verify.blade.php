@@ -4,5 +4,5 @@
     'info-btn',
     ($verify === '1' ? 'info-blue' : 'info-yellow')
 ]) }}>
-    {{ $verify === '1' ? 'Verify' : 'Pending' }}
+    {{ $verify === '1' ? 'Verify' : 'Not verify' }}
 </div>

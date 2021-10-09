@@ -6,6 +6,18 @@
     </x-page-header>
 
 
+    <x-filter-box>
+
+        <x-drop-down field-name="category_id" query="{{ request()->query('category_id') }}" :data-array="$categories">Category</x-drop-down>
+
+        <x-drop-down field-name="is_publish" query="{{ request()->query('is_publish') }}" :data-array="['0' => 'Not publish', '1' =>'Publish']">Is publish</x-drop-down>
+
+        <x-drop-down field-name="is_verify" query="{{ request()->query('is_verify') }}" :data-array="['0' => 'Not verify', '1' =>'Verify']">Is verify</x-drop-down>
+
+
+    </x-filter-box>
+
+
     <div class="table-wrapper">
         <table class="table">
             <thead>
@@ -50,6 +62,6 @@
         </table>
     </div>
 
-    {{ $comments->withQueryString()->onEachSide(1)->links() }}
+    {{ $posts->withQueryString()->onEachSide(1)->links() }}
 
 @endsection

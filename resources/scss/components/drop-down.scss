@@ -7,7 +7,7 @@
     position: relative;
 }
 .drop-down__button{
-    width: 200px;
+    min-width: 250px;
     height: 45px;
     border: 2px solid #EEEEEE;
     border-radius: 4px;
@@ -35,6 +35,7 @@
     width: 100%;
     box-shadow: rgba(#000, 0.1) 3px 5px 6px 0;
     cursor: pointer;
+    overflow: hidden;
 }
 //Стили при открытом списке
 .drop-down__select--open{

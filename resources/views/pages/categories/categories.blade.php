@@ -36,6 +36,6 @@
             </table>
         </div>
 
-        {{ $comments->withQueryString()->onEachSide(1)->links() }}
+        {{ $categories->withQueryString()->onEachSide(1)->links() }}
 
 @endsection

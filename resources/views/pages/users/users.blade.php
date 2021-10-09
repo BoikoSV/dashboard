@@ -40,6 +40,6 @@
         </table>
     </div>
 
-{{ $comments->withQueryString()->onEachSide(1)->links() }}
+{{ $users->withQueryString()->onEachSide(1)->links() }}
 
 @endsection
