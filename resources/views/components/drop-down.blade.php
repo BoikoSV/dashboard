@@ -1,7 +1,7 @@
 @props(['field-name', 'data-array', 'query' => false])
 <div class="drop-down">
     <div class="drop-down__select">
-        <button type="button" class="drop-down__button">{{ $query ? $dataArray[$query] : $slot }}</button>
+        <button type="button" class="drop-down__button">{{ $query !== '' ? $dataArray[$query] : $slot }}</button>
         <ul class="drop-down__list">
             <li class="drop-down__list-item" data-value="">
                 - {{ $slot }} -

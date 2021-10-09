@@ -4,6 +4,9 @@
 
         <x-page-header title="All comments" />
 
+        <x-filter-box>
+            <x-drop-down field-name="is_publish" query="{{ request()->query('is_publish') }}" :data-array="['0' => 'Pending', '1' =>'Publish']">Status</x-drop-down>
+        </x-filter-box>
 
         <div class="table-wrapper">
             <table class="table">
@@ -40,6 +43,6 @@
             </table>
         </div>
 
-        {{ $comments->onEachSide(1)->links() }}
+        {{ $comments->withQueryString()->onEachSide(1)->links() }}
 
 @endsection
