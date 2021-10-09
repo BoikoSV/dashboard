@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -17,9 +18,9 @@ class UserController extends Controller
         $users = User::with('role')
                 ->latest('created_at')
                 ->paginate(10);
+        $roles = Role::get();
 
-
-        return view('pages.users.users', compact('users'));
+        return view('pages.users.users', compact('users', 'roles'));
     }
 
     /**

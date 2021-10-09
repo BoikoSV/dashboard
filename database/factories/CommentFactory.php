@@ -31,8 +31,8 @@ class CommentFactory extends Factory
             'user_id' => Arr::random($usersId),
             'post_id' => Arr::random($postsId),
             'is_publish' => Arr::random([0, 1]),
-            'created_at' => $this->faker->dateTime,
-            'updated_at' => $this->faker->dateTime,
+            'created_at' => $this->faker->dateTimeBetween('-10 years'),
+            'updated_at' => $this->faker->dateTimeBetween('-10 years'),
         ];
     }
 }

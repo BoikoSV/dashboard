@@ -7,7 +7,7 @@
     position: relative;
 }
 .drop-down__button{
-    width: 185px;
+    width: 200px;
     height: 45px;
     border: 2px solid #EEEEEE;
     border-radius: 4px;
@@ -52,6 +52,7 @@
     align-items: center;
     border-bottom: none;
     padding-left: 20px;
+    white-space: nowrap;
 }
 .drop-down__list-item:hover{
     background-color: #5887FF;

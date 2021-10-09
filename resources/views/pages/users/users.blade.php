@@ -7,11 +7,9 @@
 </x-page-header>
 
 
-
     <x-filter-box>
-        <x-drop-down />
+        <x-drop-down field-name="role_name" query="{{ request()->query('role_name') }}" :data-array="$roles->pluck('role_name', 'id')">Role</x-drop-down>
     </x-filter-box>
-
 
     <div class="table-wrapper">
         <table class="table">
@@ -33,7 +31,7 @@
                     <td class="table__td">{{ $user->email }}</td>
                     <td class="table__td">{{ $user->date_created }}</td>
                     <td class="table__td">
-                        <x-user-role role="{{ $user->user_role }}" />
+                        <x-user-role role="{{ $user->role->role_name }}" />
                     </td>
                     <td class="table__td">act</td>
                 </tr>

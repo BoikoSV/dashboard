@@ -59,11 +59,11 @@ class User extends Authenticatable
         return $this->created_at->format('d.m.Y');
     }
 
-    public function getUserRoleAttribute(){
-        if($this->role){
-            return $this->role->role_name;
-        }else{
-            return null;
-        }
-    }
+//    public function getUserRoleAttribute(){
+//        if($this->role){
+//            return $this->role->role_name;
+//        }else{
+//            return null;
+//        }
+//    }
 }

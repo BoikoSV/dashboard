@@ -1,4 +1,3 @@
 @props(['role' => false])
 
-{{ $role }}
-<span class="{{ $role ? '' : 'info-btn info-blue' }}">{{ $role ? $role : 'Not set' }}</span>
+<span class="{{ $role === 'Not set' ? 'info-btn info-yellow' : 'info-btn info-blue' }}">{{ $role }}</span>

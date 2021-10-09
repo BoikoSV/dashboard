@@ -24,7 +24,7 @@ class UserFactory extends Factory
      */
     public function definition()
     {
-        $roles = array_merge(Role::pluck('id')->toArray(), [null, null, null, null, null]);
+        $roles = array_merge(Role::pluck('id')->toArray());
 
         return [
             'name' => $this->faker->name(),

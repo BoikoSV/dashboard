@@ -45,12 +45,14 @@ var dropDown = document.querySelector('.drop-down');
 var selectBox = dropDown.querySelector('.drop-down__select');
 var button = dropDown.querySelector('.drop-down__button');
 var list = dropDown.querySelector('.drop-down__list');
+var input = dropDown.querySelector('.drop-down__input');
 button.addEventListener('click', function () {
   selectBox.classList.toggle('drop-down__select--open');
 });
 list.addEventListener('click', function (e) {
   if (e.target.closest('.drop-down__list-item')) {
-    button.innerText = e.target.closest('.drop-down__list-item').dataset.value;
+    button.innerText = e.target.closest('.drop-down__list-item').innerText;
+    input.value = e.target.closest('.drop-down__list-item').dataset.value;
     selectBox.classList.remove('drop-down__select--open');
   }
 });
