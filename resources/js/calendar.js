@@ -2,6 +2,8 @@ class Calendar {
     month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
     constructor(date) {
         this.date = date;
+        this.root = document.createElement('div');
+        this.root.classList.add('calendar__dropdown');
     }
     createMonthList(){
 
@@ -23,6 +25,7 @@ class Calendar {
             const li = document.createElement('li');
             li.innerText = month;
             li.classList.add('calendar__month-item');
+            li.dataset.month = index;
             if(this.date.getMonth() === index){
                 li.classList.add('calendar__month-item--active');
             }
@@ -34,10 +37,13 @@ class Calendar {
 
         // <span className="calendar__year-count">2020</span>
 
-        const yearCount = document.createElement('span');
+        let yearCount = document.createElement('span');
         yearCount.classList.add('calendar__year-count');
         yearCount.innerText = this.date.getFullYear();
         return yearCount;
+
+
+
     }
 
     createDaysList(){
@@ -126,12 +132,34 @@ class Calendar {
 
     }
 
-    render(){
-        const root = document.createElement('div');
-        root.classList.add('calendar__dropdown');
+    incrementYear(){
+        this.date.setFullYear(this.date.getFullYear() + 1);
+        this.render();
+    }
+    decrementYear(){
+        this.date.setFullYear(this.date.getFullYear() - 1);
+        this.render();
+    }
+    selectMonth(month){
+        this.date.setMonth(+month);
+        this.render();
+    }
+    selectDay(date){
 
+        this.date.setDate(+date);
+        this.render();
+    }
+    render(){
+
+        const root = this.root;
+        root.innerHTML = '';
 
         const calendarMonth = document.createElement('ul');
+        calendarMonth.addEventListener('click', (e) => {
+            if(e.target.closest('.calendar__month-item')){
+                this.selectMonth(e.target.closest('.calendar__month-item').dataset.month);
+            }
+        })
         calendarMonth.classList.add('calendar__month');
         calendarMonth.append(...this.createMonthList());
         root.append(calendarMonth);
@@ -147,12 +175,20 @@ class Calendar {
         calendarYear.classList.add('calendar__year');
 
         const buttonLeft = document.createElement('button');
+        buttonLeft.addEventListener('click', () => {
+            this.decrementYear();
+        })
+        buttonLeft.type = 'button';
         buttonLeft.classList.add('calendar__year-left');
         calendarYear.append(buttonLeft);
 
         calendarYear.append(this.createYear());
 
         const buttonRight = document.createElement('button');
+        buttonRight.addEventListener('click', () => {
+            this.incrementYear();
+        })
+        buttonRight.type = 'button';
         buttonRight.classList.add('calendar__year-right');
         calendarYear.append(buttonRight);
 
@@ -171,6 +207,11 @@ class Calendar {
 
         const calendarDaysList = document.createElement('ul');
         calendarDaysList.classList.add('calendar__day-list');
+        calendarDaysList.addEventListener('click', (e) => {
+            if(e.target.closest('.calendar__day-item')){
+                this.selectDay(e.target.closest('.calendar__day-item').innerText);
+            }
+        })
         calendarDaysList.append(...this.createDaysList());
 
         root.append(calendarDaysList);
@@ -179,7 +220,9 @@ class Calendar {
     }
 }
 
-const calendar = new Calendar(new Date());
-document.querySelector('.calendar').append(calendar.render());
 
-// console.log(calendar.render())
+const wrapper = document.querySelector('.calendar')
+const calendar = new Calendar(new Date());
+wrapper.append(calendar.render());
+
+

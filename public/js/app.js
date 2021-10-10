@@ -55,6 +55,8 @@ var Calendar = /*#__PURE__*/function () {
     _defineProperty(this, "month", ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']);
 
     this.date = date;
+    this.root = document.createElement('div');
+    this.root.classList.add('calendar__dropdown');
   }
 
   _createClass(Calendar, [{
@@ -78,6 +80,7 @@ var Calendar = /*#__PURE__*/function () {
         var li = document.createElement('li');
         li.innerText = month;
         li.classList.add('calendar__month-item');
+        li.dataset.month = index;
 
         if (_this.date.getMonth() === index) {
           li.classList.add('calendar__month-item--active');
@@ -179,11 +182,42 @@ var Calendar = /*#__PURE__*/function () {
       });
     }
   }, {
+    key: "incrementYear",
+    value: function incrementYear() {
+      this.date.setFullYear(this.date.getFullYear() + 1);
+      this.render();
+    }
+  }, {
+    key: "decrementYear",
+    value: function decrementYear() {
+      this.date.setFullYear(this.date.getFullYear() - 1);
+      this.render();
+    }
+  }, {
+    key: "selectMonth",
+    value: function selectMonth(month) {
+      this.date.setMonth(+month);
+      this.render();
+    }
+  }, {
+    key: "selectDay",
+    value: function selectDay(date) {
+      this.date.setDate(+date);
+      this.render();
+    }
+  }, {
     key: "render",
     value: function render() {
-      var root = document.createElement('div');
-      root.classList.add('calendar__dropdown');
+      var _this2 = this;
+
+      var root = this.root;
+      root.innerHTML = '';
       var calendarMonth = document.createElement('ul');
+      calendarMonth.addEventListener('click', function (e) {
+        if (e.target.closest('.calendar__month-item')) {
+          _this2.selectMonth(e.target.closest('.calendar__month-item').dataset.month);
+        }
+      });
       calendarMonth.classList.add('calendar__month');
       calendarMonth.append.apply(calendarMonth, _toConsumableArray(this.createMonthList()));
       root.append(calendarMonth); // <div className="calendar__year">
@@ -195,10 +229,18 @@ var Calendar = /*#__PURE__*/function () {
       var calendarYear = document.createElement('div');
       calendarYear.classList.add('calendar__year');
       var buttonLeft = document.createElement('button');
+      buttonLeft.addEventListener('click', function () {
+        _this2.decrementYear();
+      });
+      buttonLeft.type = 'button';
       buttonLeft.classList.add('calendar__year-left');
       calendarYear.append(buttonLeft);
       calendarYear.append(this.createYear());
       var buttonRight = document.createElement('button');
+      buttonRight.addEventListener('click', function () {
+        _this2.incrementYear();
+      });
+      buttonRight.type = 'button';
       buttonRight.classList.add('calendar__year-right');
       calendarYear.append(buttonRight);
       root.append(calendarYear);
@@ -208,6 +250,11 @@ var Calendar = /*#__PURE__*/function () {
       root.append(weekWrap);
       var calendarDaysList = document.createElement('ul');
       calendarDaysList.classList.add('calendar__day-list');
+      calendarDaysList.addEventListener('click', function (e) {
+        if (e.target.closest('.calendar__day-item')) {
+          _this2.selectDay(e.target.closest('.calendar__day-item').innerText);
+        }
+      });
       calendarDaysList.append.apply(calendarDaysList, _toConsumableArray(this.createDaysList()));
       root.append(calendarDaysList);
       return root;
@@ -217,8 +264,9 @@ var Calendar = /*#__PURE__*/function () {
   return Calendar;
 }();
 
+var wrapper = document.querySelector('.calendar');
 var calendar = new Calendar(new Date());
-document.querySelector('.calendar').append(calendar.render()); // console.log(calendar.render())
+wrapper.append(calendar.render());
 
 /***/ }),
 
