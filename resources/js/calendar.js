@@ -1,7 +1,8 @@
 class Calendar {
     month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-    constructor(date) {
+    constructor(date, input) {
         this.date = date;
+        this.input = input;
         this.root = document.createElement('div');
         this.root.classList.add('calendar__dropdown');
     }
@@ -44,6 +45,15 @@ class Calendar {
 
 
 
+    }
+
+    updateData(){
+        let day = this.date.getDate() < 10 ? `0${this.date.getDate()}` : this.date.getDate();
+        let month = this.date.getMonth() + 1 < 10 ? `0${this.date.getMonth() + 1}` : this.date.getMonth() + 1;
+        let str = `${day}/${month}/${this.date.getFullYear()}`;
+
+        this.input.value = str;
+        this.render();
     }
 
     createDaysList(){
@@ -134,20 +144,24 @@ class Calendar {
 
     incrementYear(){
         this.date.setFullYear(this.date.getFullYear() + 1);
-        this.render();
+        // this.render();
+        this.updateData();
     }
     decrementYear(){
         this.date.setFullYear(this.date.getFullYear() - 1);
-        this.render();
+        // this.render();
+        this.updateData()
     }
     selectMonth(month){
         this.date.setMonth(+month);
-        this.render();
+        // this.render();
+        this.updateData()
     }
     selectDay(date){
 
         this.date.setDate(+date);
-        this.render();
+        // this.render();
+        this.updateData()
     }
     render(){
 
@@ -214,6 +228,16 @@ class Calendar {
         })
         calendarDaysList.append(...this.createDaysList());
 
+
+        const okButton = document.createElement('button');
+        okButton.addEventListener('click', (e) =>{
+            e.target.closest('.calendar__dropdown').remove();
+        })
+        okButton.type = 'button';
+        okButton.innerText = 'OK';
+        okButton.classList.add('calendar__button-add');
+        root.append(okButton);
+
         root.append(calendarDaysList);
 
         return root;
@@ -221,8 +245,34 @@ class Calendar {
 }
 
 
-const wrapper = document.querySelector('.calendar')
-const calendar = new Calendar(new Date());
-wrapper.append(calendar.render());
+const wrapper = document.querySelector('.calendar');
+const input = wrapper.querySelector('.calendar__input');
+const button = wrapper.querySelector('.calendar__input-btn');
+button.addEventListener('click', function (){
+    if(wrapper.querySelector('.calendar__dropdown')){
+        wrapper.querySelector('.calendar__dropdown').remove();
+    }
+    try{
+        let date;
+        if(input.value === null || input.value === ''){
+            date = new Date();
+        }else{
+            const dateStr = input.value.match(/^(\d{2})[\./-](\d{2})[\./-](\d{4})/);
+            if(dateStr.length === 4){
+                const dateArr = dateStr.slice(1);
+                const dateArrReverse = dateArr.reverse();
+                date = new Date(...dateArrReverse);
+            }
+        }
+
+        const calendar = new Calendar(date, input);
+
+        wrapper.append(calendar.render());
+    }catch (e){
+        alert('Не поддерживаемый формат даты, попробуйте выбрать другую')
+        input.value = '';
+    }
+
+})
 
 

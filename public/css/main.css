@@ -795,6 +795,25 @@ nav .pagination {
   background-color: #ff6346;
 }
 
+.calendar__button-add {
+  position: absolute;
+  background-color: #ff6346;
+  color: #fff;
+  font-size: 16px;
+  right: 30px;
+  bottom: 20px;
+  width: 100px;
+  height: 35px;
+  border: 2px solid #c74a35;
+  cursor: pointer;
+  transition: color 0.25s, background-color 0.25s;
+}
+
+.calendar__button-add:hover {
+  background-color: #fff;
+  color: #ff6346;
+}
+
 /*****************************
             LAYOUTS
 ******************************/

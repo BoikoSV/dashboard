@@ -28,6 +28,12 @@ __webpack_require__.r(__webpack_exports__);
   \**********************************/
 /***/ (() => {
 
+function _construct(Parent, args, Class) { if (_isNativeReflectConstruct()) { _construct = Reflect.construct; } else { _construct = function _construct(Parent, args, Class) { var a = [null]; a.push.apply(a, args); var Constructor = Function.bind.apply(Parent, a); var instance = new Constructor(); if (Class) _setPrototypeOf(instance, Class.prototype); return instance; }; } return _construct.apply(null, arguments); }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -49,12 +55,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 var Calendar = /*#__PURE__*/function () {
-  function Calendar(date) {
+  function Calendar(date, input) {
     _classCallCheck(this, Calendar);
 
     _defineProperty(this, "month", ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']);
 
     this.date = date;
+    this.input = input;
     this.root = document.createElement('div');
     this.root.classList.add('calendar__dropdown');
   }
@@ -97,6 +104,15 @@ var Calendar = /*#__PURE__*/function () {
       yearCount.classList.add('calendar__year-count');
       yearCount.innerText = this.date.getFullYear();
       return yearCount;
+    }
+  }, {
+    key: "updateData",
+    value: function updateData() {
+      var day = this.date.getDate() < 10 ? "0".concat(this.date.getDate()) : this.date.getDate();
+      var month = this.date.getMonth() + 1 < 10 ? "0".concat(this.date.getMonth() + 1) : this.date.getMonth() + 1;
+      var str = "".concat(day, "/").concat(month, "/").concat(this.date.getFullYear());
+      this.input.value = str;
+      this.render();
     }
   }, {
     key: "createDaysList",
@@ -184,26 +200,30 @@ var Calendar = /*#__PURE__*/function () {
   }, {
     key: "incrementYear",
     value: function incrementYear() {
-      this.date.setFullYear(this.date.getFullYear() + 1);
-      this.render();
+      this.date.setFullYear(this.date.getFullYear() + 1); // this.render();
+
+      this.updateData();
     }
   }, {
     key: "decrementYear",
     value: function decrementYear() {
-      this.date.setFullYear(this.date.getFullYear() - 1);
-      this.render();
+      this.date.setFullYear(this.date.getFullYear() - 1); // this.render();
+
+      this.updateData();
     }
   }, {
     key: "selectMonth",
     value: function selectMonth(month) {
-      this.date.setMonth(+month);
-      this.render();
+      this.date.setMonth(+month); // this.render();
+
+      this.updateData();
     }
   }, {
     key: "selectDay",
     value: function selectDay(date) {
-      this.date.setDate(+date);
-      this.render();
+      this.date.setDate(+date); // this.render();
+
+      this.updateData();
     }
   }, {
     key: "render",
@@ -256,6 +276,14 @@ var Calendar = /*#__PURE__*/function () {
         }
       });
       calendarDaysList.append.apply(calendarDaysList, _toConsumableArray(this.createDaysList()));
+      var okButton = document.createElement('button');
+      okButton.addEventListener('click', function (e) {
+        e.target.closest('.calendar__dropdown').remove();
+      });
+      okButton.type = 'button';
+      okButton.innerText = 'OK';
+      okButton.classList.add('calendar__button-add');
+      root.append(okButton);
       root.append(calendarDaysList);
       return root;
     }
@@ -265,8 +293,35 @@ var Calendar = /*#__PURE__*/function () {
 }();
 
 var wrapper = document.querySelector('.calendar');
-var calendar = new Calendar(new Date());
-wrapper.append(calendar.render());
+var input = wrapper.querySelector('.calendar__input');
+var button = wrapper.querySelector('.calendar__input-btn');
+button.addEventListener('click', function () {
+  if (wrapper.querySelector('.calendar__dropdown')) {
+    wrapper.querySelector('.calendar__dropdown').remove();
+  }
+
+  try {
+    var date;
+
+    if (input.value === null || input.value === '') {
+      date = new Date();
+    } else {
+      var dateStr = input.value.match(/^(\d{2})[\./-](\d{2})[\./-](\d{4})/);
+
+      if (dateStr.length === 4) {
+        var dateArr = dateStr.slice(1);
+        var dateArrReverse = dateArr.reverse();
+        date = _construct(Date, _toConsumableArray(dateArrReverse));
+      }
+    }
+
+    var calendar = new Calendar(date, input);
+    wrapper.append(calendar.render());
+  } catch (e) {
+    alert('Не поддерживаемый формат даты, попробуйте выбрать другую');
+    input.value = '';
+  }
+});
 
 /***/ }),
 
