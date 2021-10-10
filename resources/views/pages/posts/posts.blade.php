@@ -10,6 +10,8 @@
 
         <x-calendar></x-calendar>
 
+        <x-calendar></x-calendar>
+
         <x-drop-down field-name="category_id" query="{{ request()->query('category_id') }}" :data-array="$categories">Category</x-drop-down>
 
         <x-drop-down field-name="is_publish" query="{{ request()->query('is_publish') }}" :data-array="['0' => 'Not publish', '1' =>'Publish']">Is publish</x-drop-down>

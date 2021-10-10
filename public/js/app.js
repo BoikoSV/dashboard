@@ -14,7 +14,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _drop_down__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./drop-down */ "./resources/js/drop-down.js");
 /* harmony import */ var _drop_down__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_drop_down__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _calendar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./calendar */ "./resources/js/calendar.js");
-/* harmony import */ var _calendar__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_calendar__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _pages_posts_calendar__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pages/posts/calendar */ "./resources/js/pages/posts/calendar.js");
+
 
 
 
@@ -26,14 +27,13 @@ __webpack_require__.r(__webpack_exports__);
 /*!**********************************!*\
   !*** ./resources/js/calendar.js ***!
   \**********************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-function _construct(Parent, args, Class) { if (_isNativeReflectConstruct()) { _construct = Reflect.construct; } else { _construct = function _construct(Parent, args, Class) { var a = [null]; a.push.apply(a, args); var Constructor = Function.bind.apply(Parent, a); var instance = new Constructor(); if (Class) _setPrototypeOf(instance, Class.prototype); return instance; }; } return _construct.apply(null, arguments); }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -292,36 +292,7 @@ var Calendar = /*#__PURE__*/function () {
   return Calendar;
 }();
 
-var wrapper = document.querySelector('.calendar');
-var input = wrapper.querySelector('.calendar__input');
-var button = wrapper.querySelector('.calendar__input-btn');
-button.addEventListener('click', function () {
-  if (wrapper.querySelector('.calendar__dropdown')) {
-    wrapper.querySelector('.calendar__dropdown').remove();
-  }
-
-  try {
-    var date;
-
-    if (input.value === null || input.value === '') {
-      date = new Date();
-    } else {
-      var dateStr = input.value.match(/^(\d{2})[\./-](\d{2})[\./-](\d{4})/);
-
-      if (dateStr.length === 4) {
-        var dateArr = dateStr.slice(1);
-        var dateArrReverse = dateArr.reverse();
-        date = _construct(Date, _toConsumableArray(dateArrReverse));
-      }
-    }
-
-    var calendar = new Calendar(date, input);
-    wrapper.append(calendar.render());
-  } catch (e) {
-    alert('Не поддерживаемый формат даты, попробуйте выбрать другую');
-    input.value = '';
-  }
-});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Calendar);
 
 /***/ }),
 
@@ -405,6 +376,70 @@ _components_js__WEBPACK_IMPORTED_MODULE_0__.aside.addEventListener('click', func
   if (e.target.closest('.menu__header')) {
     e.target.closest('.menu__header').classList.toggle('menu__header--show');
   }
+});
+
+/***/ }),
+
+/***/ "./resources/js/pages/posts/calendar.js":
+/*!**********************************************!*\
+  !*** ./resources/js/pages/posts/calendar.js ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _calendar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../calendar */ "./resources/js/calendar.js");
+function _construct(Parent, args, Class) { if (_isNativeReflectConstruct()) { _construct = Reflect.construct; } else { _construct = function _construct(Parent, args, Class) { var a = [null]; a.push.apply(a, args); var Constructor = Function.bind.apply(Parent, a); var instance = new Constructor(); if (Class) _setPrototypeOf(instance, Class.prototype); return instance; }; } return _construct.apply(null, arguments); }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+
+console.log(_calendar__WEBPACK_IMPORTED_MODULE_0__["default"]);
+document.querySelectorAll('.calendar').forEach(function (wrapper) {
+  // const wrapper = document.querySelector('.calendar');
+  var input = wrapper.querySelector('.calendar__input');
+  var button = wrapper.querySelector('.calendar__input-btn');
+  button.addEventListener('click', function () {
+    if (wrapper.querySelector('.calendar__dropdown')) {
+      wrapper.querySelector('.calendar__dropdown').remove();
+    }
+
+    try {
+      var date;
+
+      if (input.value === null || input.value === '') {
+        date = new Date();
+      } else {
+        var dateStr = input.value.match(/^(\d{2})[\./-](\d{2})[\./-](\d{4})/);
+
+        if (dateStr.length === 4) {
+          var dateArr = dateStr.slice(1);
+          var dateArrReverse = dateArr.reverse();
+          date = _construct(Date, _toConsumableArray(dateArrReverse));
+        }
+      }
+
+      var calendar = new _calendar__WEBPACK_IMPORTED_MODULE_0__["default"](date, input);
+      wrapper.append(calendar.render());
+    } catch (e) {
+      alert('Не поддерживаемый формат даты, попробуйте выбрать другую');
+      input.value = '';
+    }
+  });
 });
 
 /***/ }),
