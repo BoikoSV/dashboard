@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Filters\PostFilter;
 use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
@@ -13,9 +14,10 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(PostFilter $filter)
     {
-        $posts = Post::with(['user', 'category', 'comments'])
+        $posts = Post::filter($filter)
+                    ->with(['user', 'category', 'comments'])
                     ->latest('created_at')
                     ->paginate(7);
 
