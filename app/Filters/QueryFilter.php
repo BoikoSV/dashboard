@@ -39,7 +39,7 @@ abstract class QueryFilter
         $newArr = [];
         foreach ($arr as $key => $elem){
             if($elem || $elem === '0'){
-                $newArr[$key] = $elem;
+                $newArr[$key] = trim($elem);
             }
         }
         return $newArr;
