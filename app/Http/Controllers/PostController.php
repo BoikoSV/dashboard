@@ -17,7 +17,7 @@ class PostController extends Controller
     {
         $posts = Post::with(['user', 'category', 'comments'])
                     ->latest('created_at')
-                    ->paginate(9);
+                    ->paginate(7);
 
         $categories = Category::pluck('category_name', 'id');
 

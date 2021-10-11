@@ -5,14 +5,15 @@
 }
 .drop-down__select{
     position: relative;
+    color: rgba(#000, 0.65);
 }
 .drop-down__button{
-    min-width: 250px;
-    height: 45px;
+    min-width: 180px;
+    height: 40px;
     border: 2px solid #EEEEEE;
     border-radius: 4px;
     background-color: #fff;
-    color: #B9B9B9;
+    color: rgba(#000, 0.65);
     font-size: 16px;
     display: flex;
     align-items: center;
@@ -47,7 +48,7 @@
     }
 }
 .drop-down__list-item{
-    height: 45px;
+    height: 40px;
     border: 2px solid #EEEEEE;
     display: flex;
     align-items: center;

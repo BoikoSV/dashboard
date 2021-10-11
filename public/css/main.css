@@ -266,7 +266,7 @@ li {
 .page-header {
   display: flex;
   align-items: center;
-  height: 80px;
+  height: 60px;
 }
 
 .page-header__title {
@@ -278,7 +278,7 @@ li {
 }
 
 .create-btn {
-  padding: 10px 20px;
+  padding: 8px 16px;
   border: 2px solid #2F49D1;
   border-radius: 4px;
   font-weight: 40;
@@ -339,7 +339,7 @@ li {
 }
 
 .table__td {
-  height: 64px;
+  height: 50px;
   padding-left: 10px;
   padding-right: 10px;
   border-bottom: 1px solid #DADBE4;
@@ -389,12 +389,13 @@ li {
 }
 
 .info-btn {
-  width: 80px;
-  line-height: 30px;
+  width: 70px;
+  line-height: 25px;
   border-radius: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 10px;
 }
 
 .info-green {
@@ -468,8 +469,8 @@ nav .pagination {
 }
 
 .page-item {
-  width: 45px;
-  height: 45px;
+  width: 35px;
+  height: 35px;
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
@@ -504,7 +505,7 @@ nav .pagination {
 }
 
 .filter-box {
-  height: 85px;
+  height: 70px;
   background-color: #fff;
   border-radius: 8px 8px 0 0;
   padding-left: 20px;
@@ -518,11 +519,11 @@ nav .pagination {
   background-color: transparent;
   font-size: 16px;
   line-height: 24px;
-  color: #B9B9B9;
+  color: rgba(0, 0, 0, 0.65);
   border: 2px solid #EEEEEE;
   border-radius: 4px;
   padding: 0 15px;
-  height: 44px;
+  height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -544,15 +545,16 @@ nav .pagination {
 
 .drop-down__select {
   position: relative;
+  color: rgba(0, 0, 0, 0.65);
 }
 
 .drop-down__button {
-  min-width: 250px;
-  height: 45px;
+  min-width: 180px;
+  height: 40px;
   border: 2px solid #EEEEEE;
   border-radius: 4px;
   background-color: #fff;
-  color: #B9B9B9;
+  color: rgba(0, 0, 0, 0.65);
   font-size: 16px;
   display: flex;
   align-items: center;
@@ -588,7 +590,7 @@ nav .pagination {
 }
 
 .drop-down__list-item {
-  height: 45px;
+  height: 40px;
   border: 2px solid #EEEEEE;
   display: flex;
   align-items: center;
@@ -617,14 +619,14 @@ nav .pagination {
 
 .calendar__input-wrapper {
   position: relative;
-  height: 45px;
+  height: 40px;
   margin-right: 20px;
 }
 
 .calendar__input {
   display: block;
   height: 100%;
-  width: 180px;
+  width: 170px;
   border: 2px solid #EEEEEE;
   border-radius: 4px;
   background-color: #fff;
@@ -638,7 +640,7 @@ nav .pagination {
   position: absolute;
   right: 0;
   top: 0;
-  width: 50px;
+  width: 45px;
   height: 100%;
   border: none;
   background-color: #2F49D1;
@@ -651,7 +653,7 @@ nav .pagination {
   content: "\e953";
   display: block;
   font-family: icomoon;
-  font-size: 25px;
+  font-size: 20px;
 }
 
 .calendar__dropdown {
@@ -860,6 +862,12 @@ nav .pagination {
 
 .table__categories {
   max-width: 500px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.table__td:nth-child(2) {
+  max-width: 350px;
   overflow: hidden;
   text-overflow: ellipsis;
 }

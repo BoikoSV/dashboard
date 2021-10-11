@@ -17,7 +17,7 @@ class UserController extends Controller
     {
         $users = User::with('role')
                 ->latest('created_at')
-                ->paginate(9);
+                ->paginate(7);
         $roles = Role::get();
 
         return view('pages.users.users', compact('users', 'roles'));

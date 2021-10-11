@@ -3,13 +3,13 @@
 }
 .calendar__input-wrapper{
     position: relative;
-    height: 45px;
+    height: 40px;
     margin-right: 20px;
 }
 .calendar__input{
     display: block;
     height: 100%;
-    width: 180px;
+    width: 170px;
     border: 2px solid #EEEEEE;
     border-radius: 4px;
     background-color: #fff;
@@ -22,7 +22,7 @@
     position: absolute;
     right: 0;
     top: 0;
-    width: 50px;
+    width: 45px;
     height: 100%;
     border: none;
     background-color: #2F49D1;
@@ -34,7 +34,7 @@
     content: "\e953";
     display: block;
     font-family: icomoon;
-    font-size: 25px;
+    font-size: 20px;
 }
 
 
