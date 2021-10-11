@@ -408,9 +408,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToAr
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
 
-console.log(_calendar__WEBPACK_IMPORTED_MODULE_0__["default"]);
 document.querySelectorAll('.calendar').forEach(function (wrapper) {
-  // const wrapper = document.querySelector('.calendar');
   var input = wrapper.querySelector('.calendar__input');
   var button = wrapper.querySelector('.calendar__input-btn');
   button.addEventListener('click', function () {
@@ -439,6 +437,15 @@ document.querySelectorAll('.calendar').forEach(function (wrapper) {
       alert('Не поддерживаемый формат даты, попробуйте выбрать другую');
       input.value = '';
     }
+
+    document.addEventListener('click', function (e) {
+      // console.log(e.target.parentElement)
+      if (!(e.target.closest('.calendar__dropdown') || e.target.closest('.calendar__month') || e.target.closest('.calendar__year') || e.target.closest('.calendar__day-list'))) {
+        if (wrapper.querySelector('.calendar__dropdown') && e.target !== button && e.target.closest('.calendar__input-btn') !== button) {
+          wrapper.querySelector('.calendar__dropdown').remove();
+        }
+      }
+    });
   });
 });
 

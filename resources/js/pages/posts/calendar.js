@@ -1,10 +1,9 @@
 import Calendar from '../../calendar';
 
-console.log(Calendar);
 
 document.querySelectorAll('.calendar').forEach(wrapper => {
 
-    // const wrapper = document.querySelector('.calendar');
+
     const input = wrapper.querySelector('.calendar__input');
     const button = wrapper.querySelector('.calendar__input-btn');
     button.addEventListener('click', function (){
@@ -31,8 +30,28 @@ document.querySelectorAll('.calendar').forEach(wrapper => {
             alert('Не поддерживаемый формат даты, попробуйте выбрать другую')
             input.value = '';
         }
+        document.addEventListener('click', function (e){
+            // console.log(e.target.parentElement)
+            if(!(
+                e.target.closest('.calendar__dropdown') ||
+                e.target.closest('.calendar__month') ||
+                e.target.closest('.calendar__year') ||
+                e.target.closest('.calendar__day-list')
+
+            )){
+                if(
+                    wrapper.querySelector('.calendar__dropdown') &&
+                    e.target !== button &&
+                    e.target.closest('.calendar__input-btn') !== button){
+                    wrapper.querySelector('.calendar__dropdown').remove();
+                }
+            }
+        })
 
     })
+
+
+
 
 
 
