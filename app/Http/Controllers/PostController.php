@@ -44,7 +44,10 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::pluck('category_name', 'id');
+
+
+        return view('pages.posts.create', compact('categories'));
     }
 
     /**

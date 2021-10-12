@@ -1,0 +1,12 @@
+.grid-box{
+    display:grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto 250px auto;
+    gap: 25px;
+}
+
+.grid-box > *{
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 25px;
+}

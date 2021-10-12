@@ -1,4 +1,5 @@
 @props(['categoryName'])
-<div class="{{ $categoryName ? '' : 'info-btn info-yellow' }}">
-    {{ $categoryName ? $categoryName : 'Not set'}}
+
+<div class="{{ $categoryName !== 'Not set' ? '' : 'info-btn info-yellow' }}">
+    {{ $categoryName }}
 </div>

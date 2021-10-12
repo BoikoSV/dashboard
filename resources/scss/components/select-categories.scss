@@ -1,0 +1,47 @@
+.select-categories{
+
+}
+.select-categories__title{
+    color: rgba(#000, 0.75);
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+.select-categories__list{
+    font-size: 16px;
+    color: rgba(#000, 0.75);
+}
+.select-categories__item{
+    position: relative;
+    margin-bottom: 5px;
+}
+.select-categories__label{
+    padding-left: 30px;
+    position: relative;
+    cursor: pointer;
+}
+.select-categories__radio{
+    position: absolute;
+    left: -99999px;
+}
+.select-categories__label::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+    border: 2px solid rgba(#000, 0.70);
+    border-radius: 3px;
+}
+.select-categories__radio:checked ~ .select-categories__label::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 15px;
+    height: 15px;
+    border-radius: 3px;
+    background-color: #2F49D1;
+}
+.select-categories__not-set{
+    color: rgba(#000, 0.3);
+}

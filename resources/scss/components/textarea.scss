@@ -1,0 +1,33 @@
+.textarea{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+.textarea:last-child{
+    margin-bottom: 0;
+}
+.textarea__label{
+    color: rgba(#000, 0.65);
+    margin-bottom: 10px;
+}
+.textarea__field{
+    background-color: #e2e4ef;
+    border-radius: 10px;
+    border: none;
+    padding: 20px;
+    resize: none;
+    height: 100px;
+    overflow-y: auto;
+    font-family: Inter;
+    color: rgba(#000, 0.85);
+}
+.textarea__field::placeholder{
+    color: rgba(#000, 0.65);
+    font-family: Inter;
+}
+.textarea__field:focus{
+    outline: 2px solid rgba(88, 135, 255, 0.5);
+}
+.textarea--large{
+    height: 400px;
+}

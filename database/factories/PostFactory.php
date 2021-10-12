@@ -25,7 +25,7 @@ class PostFactory extends Factory
     public function definition()
     {
         $userIds = User::pluck('id')->toArray();
-        $categoryIds = array_merge(Category::pluck('id')->toArray(), [null, null, null, null, null]);
+        $categoryIds = array_merge(Category::pluck('id')->toArray());
         return [
             'title' => $this->faker->text(100),
             'description' => $this->faker->text(250),
