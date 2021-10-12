@@ -8,8 +8,16 @@
 
 
     <x-filter-box>
+
+        from
+        <x-calendar name="more" />
+        to
+        <x-calendar name="less" />
+
         <x-drop-down field-name="role_name" query="{{ request()->query('role_name') }}" :data-array="$roles->pluck('role_name', 'id')">Role</x-drop-down>
     </x-filter-box>
+
+
 
     <div class="table-wrapper">
         <table class="table">

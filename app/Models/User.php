@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
+use App\Filters\QueryFilter;
 use Carbon\Carbon;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -59,11 +61,8 @@ class User extends Authenticatable
         return $this->created_at->format('d.m.Y');
     }
 
-//    public function getUserRoleAttribute(){
-//        if($this->role){
-//            return $this->role->role_name;
-//        }else{
-//            return null;
-//        }
-//    }
+    public function scopeFilter(Builder $builder, QueryFilter $filter)
+    {
+        $filter->apply($builder);
+    }
 }

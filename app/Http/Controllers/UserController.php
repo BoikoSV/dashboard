@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Filters\UserFilter;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -13,9 +14,10 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(UserFilter $filter)
     {
-        $users = User::with('role')
+        $users = User::filter($filter)
+                ->with('role')
                 ->latest('created_at')
                 ->paginate(7);
         $roles = Role::get();

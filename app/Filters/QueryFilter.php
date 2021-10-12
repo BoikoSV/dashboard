@@ -6,6 +6,7 @@ namespace App\Filters;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Str;
 
 abstract class QueryFilter
@@ -43,5 +44,12 @@ abstract class QueryFilter
             }
         }
         return $newArr;
+    }
+
+    public function more($value){
+        $this->builder->where('created_at', '>', Carbon::createFromFormat('d/m/Y', $value));
+    }
+    public function less($value){
+        $this->builder->where('created_at', '<', Carbon::createFromFormat('d/m/Y', $value));
     }
 }
