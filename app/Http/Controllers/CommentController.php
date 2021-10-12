@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Filters\CommentFilter;
 use App\Models\Comment;
 use Illuminate\Http\Request;
 
@@ -12,9 +13,10 @@ class CommentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(CommentFilter $filter)
     {
-        $comments = Comment::with(['user', 'post'])->latest('created_at')->paginate(7);
+        $comments = Comment::filter($filter)
+                        ->with(['user', 'post'])->latest('created_at')->paginate(7);
 
         return view('pages.comments.comments', compact('comments'));
     }
