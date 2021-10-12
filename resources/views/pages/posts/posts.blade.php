@@ -7,9 +7,9 @@
 
 
     <x-filter-box>
-        <x-calendar name="more" />
+        <x-calendar name="more" :value="$more" />
         to
-        <x-calendar name="less" />
+        <x-calendar name="less" :value="$less" />
 
         <x-drop-down field-name="category_id" query="{{ request()->query('category_id') }}" :data-array="$categories">Category</x-drop-down>
 

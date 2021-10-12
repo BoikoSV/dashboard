@@ -10,9 +10,9 @@
     <x-filter-box>
 
         from
-        <x-calendar name="more" />
+        <x-calendar name="more" :value="$more" />
         to
-        <x-calendar name="less" />
+        <x-calendar name="less" :value="$less" />
 
         <x-drop-down field-name="role_name" query="{{ request()->query('role_name') }}" :data-array="$roles->pluck('role_name', 'id')">Role</x-drop-down>
     </x-filter-box>

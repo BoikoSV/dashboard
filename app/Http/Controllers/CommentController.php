@@ -13,12 +13,23 @@ class CommentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(CommentFilter $filter)
+    public function index(Request $request, CommentFilter $filter)
     {
         $comments = Comment::filter($filter)
                         ->with(['user', 'post'])->latest('created_at')->paginate(7);
 
-        return view('pages.comments.comments', compact('comments'));
+        if($request->has('more')){
+            $more = $request->more;
+        }else{
+            $more = '';
+        }
+        if($request->has('less')){
+            $less = $request->less;
+        }else{
+            $less = '';
+        }
+
+        return view('pages.comments.comments', compact('comments', 'more', 'less'));
     }
 
     /**

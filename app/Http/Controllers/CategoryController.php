@@ -13,12 +13,23 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(CategoryFilter $filter)
+    public function index(Request $request, CategoryFilter $filter)
     {
         $categories = Category::filter($filter)
                 ->latest('created_at')->paginate(7);
 
-        return view('pages.categories.categories', compact('categories'));
+        if($request->has('more')){
+            $more = $request->more;
+        }else{
+            $more = '';
+        }
+        if($request->has('less')){
+            $less = $request->less;
+        }else{
+            $less = '';
+        }
+
+        return view('pages.categories.categories', compact('categories', 'more', 'less'));
     }
 
     /**

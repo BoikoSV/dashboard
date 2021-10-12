@@ -14,7 +14,7 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(UserFilter $filter)
+    public function index(Request $request, UserFilter $filter)
     {
         $users = User::filter($filter)
                 ->with('role')
@@ -22,7 +22,18 @@ class UserController extends Controller
                 ->paginate(7);
         $roles = Role::get();
 
-        return view('pages.users.users', compact('users', 'roles'));
+        if($request->has('more')){
+            $more = $request->more;
+        }else{
+            $more = '';
+        }
+        if($request->has('less')){
+            $less = $request->less;
+        }else{
+            $less = '';
+        }
+
+        return view('pages.users.users', compact('users', 'roles', 'more', 'less'));
     }
 
     /**

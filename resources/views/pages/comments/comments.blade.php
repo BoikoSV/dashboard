@@ -7,9 +7,9 @@
         <x-filter-box>
 
             from
-            <x-calendar name="more" />
+            <x-calendar name="more" :value="$more" />
             to
-            <x-calendar name="less" />
+            <x-calendar name="less" :value="$less" />
 
             <x-drop-down field-name="is_publish" query="{{ request()->query('is_publish') }}" :data-array="['0' => 'Not publish', '1' =>'Publish']">Is publish</x-drop-down>
         </x-filter-box>

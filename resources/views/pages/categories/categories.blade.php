@@ -9,9 +9,9 @@
         <x-filter-box>
 
             from
-            <x-calendar name="more" />
+            <x-calendar name="more" :value="$more" />
             to
-            <x-calendar name="less" />
+            <x-calendar name="less" :value="$less" />
 
         </x-filter-box>
 

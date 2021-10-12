@@ -14,7 +14,7 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(PostFilter $filter)
+    public function index(Request $request, PostFilter $filter)
     {
         $posts = Post::filter($filter)
                     ->with(['user', 'category', 'comments'])
@@ -23,7 +23,18 @@ class PostController extends Controller
 
         $categories = Category::pluck('category_name', 'id');
 
-        return view('pages.posts.posts', compact('posts', 'categories'));
+        if($request->has('more')){
+            $more = $request->more;
+        }else{
+            $more = '';
+        }
+        if($request->has('less')){
+            $less = $request->less;
+        }else{
+            $less = '';
+        }
+
+        return view('pages.posts.posts', compact('posts', 'categories', 'more', 'less'));
     }
 
     /**
