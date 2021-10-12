@@ -21,9 +21,9 @@ class PostFilter extends QueryFilter
     }
 
     public function more($value){
-        $this->builder->where('created_at', '>', Carbon::parse($value)->toDateString());
+        $this->builder->where('created_at', '>', Carbon::createFromFormat('d/m/Y', $value));
     }
     public function less($value){
-        $this->builder->where('created_at', '<', Carbon::parse($value)->toDateString());
+        $this->builder->where('created_at', '<', Carbon::createFromFormat('d/m/Y', $value));
     }
 }
