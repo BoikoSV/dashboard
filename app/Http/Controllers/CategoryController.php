@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Filters\CategoryFilter;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
@@ -12,9 +13,10 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(CategoryFilter $filter)
     {
-        $categories = Category::latest('created_at')->paginate(7);
+        $categories = Category::filter($filter)
+                ->latest('created_at')->paginate(7);
 
         return view('pages.categories.categories', compact('categories'));
     }

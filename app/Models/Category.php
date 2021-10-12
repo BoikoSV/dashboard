@@ -2,7 +2,9 @@
 
 namespace App\Models;
 
+use App\Filters\QueryFilter;
 use Cviebrock\EloquentSluggable\Sluggable;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -25,5 +27,10 @@ class Category extends Model
                 'source' => 'category_name'
             ]
         ];
+    }
+
+    public function scopeFilter(Builder $builder, QueryFilter $filter)
+    {
+        $filter->apply($builder);
     }
 }

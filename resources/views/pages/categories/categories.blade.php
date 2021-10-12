@@ -6,6 +6,15 @@
             <x-button class="btn-fill" href="{{ route('categories.create') }}">Add new</x-button>
         </x-page-header>
 
+        <x-filter-box>
+
+            from
+            <x-calendar name="more" />
+            to
+            <x-calendar name="less" />
+
+        </x-filter-box>
+
 
         <div class="table-wrapper">
             <table class="table">
