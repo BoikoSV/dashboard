@@ -1,7 +1,7 @@
 <aside class="aside">
     <div class="aside__inner">
         <div class="aside__header">
-            <a href="#" class="aside__logo-link">
+            <a href="{{ route('posts.index') }}" class="aside__logo-link">
                 <span class="aside__logo-text">LOGO</span>
             </a>
             <button class="menu-btn">
@@ -25,7 +25,7 @@
                             <a href="{{ route('posts.index') }}" class="sub-menu__link {{ \Illuminate\Support\Facades\Route::is('posts.index') ? 'sub-menu__link--active' : '' }}">Show all</a>
                         </li>
                         <li class="sub-menu__item">
-                            <a href="#" class="sub-menu__link">Create post</a>
+                            <a href="{{ route('posts.create') }}" class="sub-menu__link {{ \Illuminate\Support\Facades\Route::is('posts.create') ? 'sub-menu__link--active' : '' }}">Create post</a>
                         </li>
                     </ul>
                 </li>
@@ -40,9 +40,6 @@
                     <ul class="sub-menu">
                         <li class="sub-menu__item">
                             <a href="{{ route('categories.index') }}" class="sub-menu__link {{ \Illuminate\Support\Facades\Route::is('categories.index') ? 'sub-menu__link--active' : '' }}">Show all</a>
-                        </li>
-                        <li class="sub-menu__item">
-                            <a href="#" class="sub-menu__link">Create category</a>
                         </li>
                     </ul>
                 </li>
@@ -71,12 +68,6 @@
                     <ul class="sub-menu">
                         <li class="sub-menu__item">
                             <a href="{{ route('users.index') }}" class="sub-menu__link {{ \Illuminate\Support\Facades\Route::is('users.index') ? 'sub-menu__link--active' : '' }}">Show all</a>
-                        </li>
-                        <li class="sub-menu__item">
-                            <a href="#" class="sub-menu__link">Create user</a>
-                        </li>
-                        <li class="sub-menu__item">
-                            <a href="#" class="sub-menu__link">Ban list</a>
                         </li>
                     </ul>
                 </li>

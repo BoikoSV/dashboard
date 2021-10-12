@@ -3,7 +3,6 @@
 @section('content')
 
         <x-page-header title="All categories">
-            <x-button class="btn-fill" href="{{ route('categories.create') }}">Add new</x-button>
         </x-page-header>
 
         <x-filter-box>

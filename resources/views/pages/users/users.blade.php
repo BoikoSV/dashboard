@@ -3,7 +3,7 @@
 @section('content')
 
 <x-page-header title="All users">
-    <x-button class="btn-fill" href="{{ route('users.create') }}">Add new</x-button>
+
 </x-page-header>
 
 
