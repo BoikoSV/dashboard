@@ -15,6 +15,7 @@
         </x-filter-box>
 
         <div class="table-wrapper">
+            @if(count($comments) > 0)
             <table class="table">
                 <thead>
                 <tr class="table__tr">
@@ -47,8 +48,11 @@
                 @endforeach
                 </tbody>
             </table>
+            @else
+                <div class="table__no-data">Нет записей</div>
+            @endif
         </div>
-
+        @if($comments)
         {{ $comments->withQueryString()->onEachSide(1)->links() }}
-
+        @endif
 @endsection

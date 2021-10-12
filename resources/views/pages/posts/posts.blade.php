@@ -22,6 +22,7 @@
 
 
     <div class="table-wrapper">
+        @if(count($posts) > 0)
         <table class="table">
             <thead>
             <tr class="table__tr">
@@ -63,8 +64,11 @@
             @endforeach
             </tbody>
         </table>
+        @else
+            <div class="table__no-data">Нет записей</div>
+        @endif
     </div>
-
+    @if($posts)
     {{ $posts->withQueryString()->onEachSide(1)->links() }}
-
+    @endif
 @endsection
